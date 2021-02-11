@@ -1,0 +1,45 @@
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+    <mat-card class="box">
+      <mat-card-title class="title">Get answers from a context</mat-card-title>
+      <mat-card-content>
+        <form #sentence = "ngForm" (ngSubmit) = "onClickAsk(sentence.value)" class="example-form">
+          <mat-form-field>
+            <mat-label>Language</mat-label>
+            <mat-select [(value)]="selected">
+              <mat-option value="option1">Portuguese</mat-option>
+              <mat-option value="option2">English</mat-option>
+              <mat-option value="option3">Multilang</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-full-width context">
+            <textarea style="resize: none;" rows="10" type = "context" name = "context" matInput placeholder="Insert context" ngModel></textarea>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput type = "text" name = "text" placeholder="Question" ngModel>
+          </mat-form-field>
+
+          <mat-card *ngFor="let answer of answers" class="mat-card answer">
+            <div class="answer-div">
+              <mat-card-title class="answer-title">Answer:</mat-card-title>
+              <mat-card-content class="answer">
+               {{answer.text}}
+              </mat-card-content>
+            </div>
+            <div>
+              <mat-card-title class="answer-title">Confidence:</mat-card-title>
+              <mat-card-content class="answer">
+                {{answer.confidence}}
+              </mat-card-content>
+            </div>
+          </mat-card>
+          <p></p>
+          <button mat-stroked-button color="accent" [class.spinner]="loading" [disabled]="loading" class="btn-block">Ask</button>
+        </form>
+        </mat-card-content>
+
+
+
+    </mat-card>
+
+  </div>

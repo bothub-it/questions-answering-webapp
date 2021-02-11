@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "types": [
+      "jasmine",
+      "node"
+    ]
+  },
+  "files": [
+    "bothub-word-suggestion-webapp/src/test.ts",
+    "bothub-word-suggestion-webapp/src/polyfills.ts"
+  ],
+  "include": [
+    "bothub-word-suggestion-webapp/src/**/*.spec.ts",
+    "bothub-word-suggestion-webapp/src/**/*.d.ts"
+  ]
+}
