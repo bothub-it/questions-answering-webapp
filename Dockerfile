@@ -14,6 +14,11 @@ COPY . /app
 RUN npm install
 RUN npm install -g @angular/cli@8.0.3
 
+ARG API_URL
+
+ENV ENVIRONMENT=production
+ENV API_URL "${API_URL}"
+
 EXPOSE 80
 
 RUN ng build --prod

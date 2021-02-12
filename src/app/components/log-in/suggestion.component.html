@@ -1,40 +1,44 @@
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
 
     <mat-card class="box">
-      <mat-card-title class="title">Get answers from a context</mat-card-title>
+      <div class="logo">
+        <img src="../assets/img/dnd/logo.svg" width="168" height="48">
+      </div>
+      <mat-card-title class="title">Modelo de pergunta e resposta</mat-card-title>
+      <mat-card-subtitle class="subtitle">Coloque um texto para o modelo retirar as respostas</mat-card-subtitle>
       <mat-card-content>
         <form #sentence = "ngForm" (ngSubmit) = "onClickAsk(sentence.value)" class="example-form">
-          <mat-form-field>
-            <mat-label>Language</mat-label>
-            <mat-select [(value)]="selected">
-              <mat-option value="option1">Portuguese</mat-option>
-              <mat-option value="option2">English</mat-option>
-              <mat-option value="option3">Multilang</mat-option>
-            </mat-select>
-          </mat-form-field>
+<!--          <mat-form-field>-->
+<!--            <mat-label>Language</mat-label>-->
+<!--            <mat-select [(value)]="selected">-->
+<!--              <mat-option value="option1">Portuguese</mat-option>-->
+<!--              <mat-option value="option2">English</mat-option>-->
+<!--              <mat-option value="option3">Multilang</mat-option>-->
+<!--            </mat-select>-->
+<!--          </mat-form-field>-->
           <mat-form-field class="example-full-width context">
-            <textarea style="resize: none;" rows="10" type = "context" name = "context" matInput placeholder="Insert context" ngModel></textarea>
+            <textarea style="resize: none; font-family: Lato;" rows="10" type = "context" name = "context" matInput placeholder="Insira contexto" ngModel></textarea>
           </mat-form-field>
           <mat-form-field class="example-full-width">
-            <input matInput type = "text" name = "text" placeholder="Question" ngModel>
+            <input style="font-family: Lato;" matInput type = "text" name = "text" placeholder="Pergunta" ngModel>
           </mat-form-field>
 
-          <mat-card *ngFor="let answer of answers" class="mat-card answer">
+          <mat-card *ngFor="let answer of answers" class="mat-card answer-card">
             <div class="answer-div">
-              <mat-card-title class="answer-title">Answer:</mat-card-title>
+              <mat-card-title class="answer-title">Resposta:</mat-card-title>
               <mat-card-content class="answer">
                {{answer.text}}
               </mat-card-content>
             </div>
             <div>
-              <mat-card-title class="answer-title">Confidence:</mat-card-title>
+              <mat-card-title class="answer-title">Confidência:</mat-card-title>
               <mat-card-content class="answer">
                 {{answer.confidence}}
               </mat-card-content>
             </div>
           </mat-card>
           <p></p>
-          <button mat-stroked-button color="accent" [class.spinner]="loading" [disabled]="loading" class="btn-block">Ask</button>
+          <button mat-stroked-button color="accent" [class.spinner]="loading" [disabled]="loading" class="btn-block">Pergunte</button>
         </form>
         </mat-card-content>
 

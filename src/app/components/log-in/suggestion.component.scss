@@ -1,12 +1,33 @@
-.answer {
+@import url('https://fonts.googleapis.com/css2?family=Aleo&family=Lato&display=swap');
+
+.mat-card {
+  box-shadow: none !important;
+  border: 1px solid #E2E6ED !important;
+  //background: #F4F6F8 !important;
+  border-radius: 4px !important;
+}
+
+.answer-card {
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+  border-radius: 4px;
+  border: 1px solid #E2E6ED;
+  box-shadow: none;
 }
 
 .answer-div {
   margin-bottom: 1rem;
 }
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  margin-bottom: 4rem;
+}
+
 
 
 .container {
@@ -60,24 +81,41 @@ h3 {
   justify-content:center;
   align-items:center;
   text-align: center;
-  font-size: 25px;
-  font-weight: bold;
+  font-size: 40px;
+  font-family: Aleo;
   padding-bottom: 20px;
+}
+
+.subtitle {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align: center;
+  font-family: Lato;
+  font-size: 18px;
 }
 
 .mat-card {
   display: flex;
-  padding: 20px;
+  padding: 18px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
 .answer-title {
   font-weight: bold;
+  font-family: Lato;
 }
 
 .answer {
   padding-left: 10px;
+  font-family: Lato;
 }
+
+.mat-form-field-label {
+  font-size: 0.8em!important;
+}
+
+
 
 .fileover {
   animation: shake 1s;
@@ -100,7 +138,6 @@ img.delete {
   cursor: pointer;
   align-self: flex-end;
 }
-
 
 display: flex;
 flex-grow: 1;

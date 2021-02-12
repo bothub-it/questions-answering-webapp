@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-log-in',
@@ -8,8 +9,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class SuggestionComponent implements OnInit {
 
-  endpoint = 'http://localhost:5000/';
-  answers: any = [];
+  endpoint = 'http://34.68.81.238:5000/';
+  answers: Array<any> = [];
   message = '';
   selected = 'option1';
   loading = false;
@@ -39,7 +40,9 @@ export class SuggestionComponent implements OnInit {
       })
       .subscribe((val) => {
         this.answers = val['answers'];
-        console.log(this.answers);
+        for (let i = 0; i < this.answers.length; i++) {
+          this.answers[i].confidence = Number(this.answers[i].confidence).toFixed(3)
+        }
         this.loading = false;
       });
   }
