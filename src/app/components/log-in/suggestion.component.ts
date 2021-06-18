@@ -9,7 +9,7 @@ import { environment} from "../../../environments/environment";
 })
 export class SuggestionComponent implements OnInit {
 
-  endpoint = 'http://34.68.81.238:5000/';
+  endpoint = 'http://localhost:5000/';
   answers: Array<any> = [];
   message = '';
   selected = 'option1';
@@ -34,17 +34,17 @@ export class SuggestionComponent implements OnInit {
     console.log(body);
     this.loading = true;
     this.http.post(this.endpoint + 'ask',
-      {
-        "context": formData.context,
-        "question": formData.text
-      })
-      .subscribe((val) => {
-        this.answers = val['answers'];
-        for (let i = 0; i < this.answers.length; i++) {
-          this.answers[i].confidence = Number(this.answers[i].confidence).toFixed(3)
-        }
-        this.loading = false;
-      });
+    {
+      "context": formData.context,
+      "question": formData.text
+    })
+    .subscribe((val) => {
+      this.answers = val['answers'];
+      for (let i = 0; i < this.answers.length; i++) {
+        this.answers[i].confidence = Number(this.answers[i].confidence).toFixed(3)
+      }
+      this.loading = false;
+    });
   }
 
 // {
